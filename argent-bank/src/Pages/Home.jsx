@@ -1,9 +1,12 @@
 import React from "react";
+import Features from "../compoenents/Features";
+import Hero from "../compoenents/Hero";
 
 function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <Hero />
+      <Features />
     </div>
   );
 }
