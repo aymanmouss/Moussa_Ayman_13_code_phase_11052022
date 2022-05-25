@@ -1,14 +1,66 @@
+import { useState } from "react";
+import AuthService from "../../hooks/auth.services";
+import { useDispatch } from "react-redux";
+import { user } from "../../redux/authSlice";
 import "./style.css";
+
 function User() {
+  const token = JSON.parse(localStorage.getItem("user"));
+  const [firstName, setFistName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [inputFistName, setInputFistName] = useState("");
+  const [inputlastName, setInputlastName] = useState("");
+  const [edit, setEdit] = useState("displayNone");
+
+  const dispatch = useDispatch();
+  // Fatch the user infor and display them
+  dispatch(user(token)).then((a) => {
+    setFistName(a.payload.firstName);
+    setLastName(a.payload.lastName);
+  });
+
+  const editName = () => {
+    edit ? setEdit("") : setEdit("displayNone");
+  };
+
+  const push = () => {
+    AuthService.pushInfo(inputFistName, inputlastName, token).then(() => {
+      window.location.reload();
+    });
+  };
   return (
     <main className='main bg-dark'>
       <div className='header'>
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          {`${firstName} ${lastName}`}
         </h1>
-        <button className='edit-button'>Edit Name</button>
+        <div className={`userProfile-Edit ${edit}`}>
+          <label htmlFor='FirstName'>First Name </label>
+          <input
+            type='text'
+            id='FirstName'
+            onChange={(e) => setInputFistName(e.target.value)}
+          />
+          <label htmlFor='LastName'>Last Name </label>
+          <input
+            type='text'
+            id='LastName'
+            onChange={(e) => setInputlastName(e.target.value)}
+          />
+          <button
+            type='submit'
+            onClick={(e) => {
+              push();
+            }}
+          >
+            Save
+          </button>
+        </div>
+        <button className='edit-button' onClick={(e) => editName()}>
+          Edit Name
+        </button>
       </div>
       <h2 className='sr-only'>Accounts</h2>
       <section className='account'>

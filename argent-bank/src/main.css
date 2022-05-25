@@ -38,3 +38,16 @@ body {
   width: 1px !important;
   white-space: nowrap !important; /* 3 */
 }
+
+label[for="LastName"] {
+  margin-left: 10px;
+}
+#LastName {
+  margin-right: 15px;
+}
+.userProfile-Edit {
+  margin-bottom: 30px;
+}
+.displayNone {
+  display: none;
+}
