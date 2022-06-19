@@ -73,6 +73,11 @@
     width: 200px;
   }
 }
+.userProfile-Edit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 #FirstName {
   margin-right: 20px;
 }
@@ -87,4 +92,15 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 475px) {
+  .save {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 420px) {
+  #LastName {
+    margin-top: 10px;
+  }
 }

@@ -51,7 +51,7 @@ function User() {
             onChange={(e) => setInputlastName(e.target.value)}
           />
           <button
-            className='edit-button'
+            className='edit-button save'
             type='submit'
             onClick={(e) => {
               push();
