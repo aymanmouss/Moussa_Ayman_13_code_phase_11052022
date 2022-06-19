@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AuthService from "../../hooks/auth.services";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { user } from "../../redux/authSlice";
 import "./style.css";
 
@@ -14,6 +14,7 @@ function User() {
 
   const dispatch = useDispatch();
   // Fatch the user infor and display them
+
   dispatch(user(token)).then((a) => {
     setFistName(a.payload.firstName);
     setLastName(a.payload.lastName);

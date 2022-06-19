@@ -32,3 +32,8 @@
   max-width: 100%;
   width: 200px;
 }
+.usenameIcon {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #2c3e50;
+}
