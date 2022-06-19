@@ -38,19 +38,20 @@ function User() {
           {`${firstName} ${lastName}`}
         </h1>
         <div className={`userProfile-Edit ${edit}`}>
-          <label htmlFor='FirstName'>First Name </label>
           <input
+            placeholder='First Name'
             type='text'
             id='FirstName'
             onChange={(e) => setInputFistName(e.target.value)}
           />
-          <label htmlFor='LastName'>Last Name </label>
           <input
+            placeholder='Last Name'
             type='text'
             id='LastName'
             onChange={(e) => setInputlastName(e.target.value)}
           />
           <button
+            className='edit-button'
             type='submit'
             onClick={(e) => {
               push();
